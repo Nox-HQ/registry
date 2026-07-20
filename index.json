@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20T17:52:55Z",
+  "generated_at": "2026-07-20T19:43:15Z",
   "plugins": [
     {
       "description": "Multi-language reachability analysis. Annotates VULN findings as REACH-001 (unreachable), REACH-002 (reachable), or REACH-003 (undetermined). Supports Go, PyPI, npm, Cargo, Maven, RubyGems, NuGet. Bundled by default in the nox release archive.",
@@ -3920,6 +3920,76 @@
           "minimum_nox_version": "0.6.0",
           "published_at": "2026-06-09T10:28:23.003123394Z",
           "version": "0.1.0"
+        },
+        {
+          "version": "0.1.1",
+          "api_version": "v1",
+          "published_at": "2026-07-20T19:42:04.832578323Z",
+          "digest": "sha256:tbd",
+          "capabilities": [
+            "plan_code",
+            "apply_code",
+            "verify_code"
+          ],
+          "artifacts": [
+            {
+              "os": "linux",
+              "arch": "amd64",
+              "url": "https://github.com/nox-hq/nox-plugin-remediate/releases/download/v0.1.1/nox-plugin-remediate_0.1.1_linux_amd64.tar.gz",
+              "size": 0,
+              "digest": "sha256:65701dc26cb29a8f38e87018deb47a9e14d2c2cf507f0d9be80f48447ac48d09",
+              "cosign_sig_url": "https://github.com/nox-hq/nox-plugin-remediate/releases/download/v0.1.1/checksums.txt.sig",
+              "cosign_bundle_url": "https://github.com/nox-hq/nox-plugin-remediate/releases/download/v0.1.1/checksums.txt.sig.bundle",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-remediate/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com"
+            },
+            {
+              "os": "linux",
+              "arch": "arm64",
+              "url": "https://github.com/nox-hq/nox-plugin-remediate/releases/download/v0.1.1/nox-plugin-remediate_0.1.1_linux_arm64.tar.gz",
+              "size": 0,
+              "digest": "sha256:5e98859f72f35f130607991d249eeda111d408cf1e7acde54a1fbd297c43a4fc",
+              "cosign_sig_url": "https://github.com/nox-hq/nox-plugin-remediate/releases/download/v0.1.1/checksums.txt.sig",
+              "cosign_bundle_url": "https://github.com/nox-hq/nox-plugin-remediate/releases/download/v0.1.1/checksums.txt.sig.bundle",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-remediate/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com"
+            },
+            {
+              "os": "darwin",
+              "arch": "amd64",
+              "url": "https://github.com/nox-hq/nox-plugin-remediate/releases/download/v0.1.1/nox-plugin-remediate_0.1.1_darwin_amd64.tar.gz",
+              "size": 0,
+              "digest": "sha256:b09de7ce73595103e70dffc606370b87cda66786fb08326a60b2e4012f721bdd",
+              "cosign_sig_url": "https://github.com/nox-hq/nox-plugin-remediate/releases/download/v0.1.1/checksums.txt.sig",
+              "cosign_bundle_url": "https://github.com/nox-hq/nox-plugin-remediate/releases/download/v0.1.1/checksums.txt.sig.bundle",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-remediate/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com"
+            },
+            {
+              "os": "darwin",
+              "arch": "arm64",
+              "url": "https://github.com/nox-hq/nox-plugin-remediate/releases/download/v0.1.1/nox-plugin-remediate_0.1.1_darwin_arm64.tar.gz",
+              "size": 0,
+              "digest": "sha256:454a0555d6346985b3e638cb6a5738dbd23fc1b40a607e6482770a563ffdc7f2",
+              "cosign_sig_url": "https://github.com/nox-hq/nox-plugin-remediate/releases/download/v0.1.1/checksums.txt.sig",
+              "cosign_bundle_url": "https://github.com/nox-hq/nox-plugin-remediate/releases/download/v0.1.1/checksums.txt.sig.bundle",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-remediate/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com"
+            },
+            {
+              "os": "windows",
+              "arch": "amd64",
+              "url": "https://github.com/nox-hq/nox-plugin-remediate/releases/download/v0.1.1/nox-plugin-remediate_0.1.1_windows_amd64.zip",
+              "size": 0,
+              "digest": "sha256:c10f8aacf6777cd53ca5daba83691d6eabf517def75e8fdd2d6a8523029020db",
+              "cosign_sig_url": "https://github.com/nox-hq/nox-plugin-remediate/releases/download/v0.1.1/checksums.txt.sig",
+              "cosign_bundle_url": "https://github.com/nox-hq/nox-plugin-remediate/releases/download/v0.1.1/checksums.txt.sig.bundle",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-remediate/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com"
+            }
+          ],
+          "minimum_nox_version": "0.6.0",
+          "changelog_url": "https://github.com/nox-hq/nox-plugin-remediate/blob/main/CHANGELOG.md"
         }
       ]
     },
