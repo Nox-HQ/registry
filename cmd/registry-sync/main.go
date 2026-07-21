@@ -102,6 +102,11 @@ func main() {
 	var skipped []string
 	changed := false
 
+	// Which repositories the index actually covers, so a plugin that is absent
+	// from it entirely can be detected below rather than silently skipped.
+	indexed := map[string]bool{}
+	owners := map[string]int{}
+
 	for _, p := range plugins {
 		pm, _ := p.(map[string]any)
 		if pm == nil {
@@ -114,6 +119,8 @@ func main() {
 			skipped = append(skipped, fmt.Sprintf("%s: cannot derive repo from homepage %q", name, home))
 			continue
 		}
+		indexed[strings.ToLower(repo)] = true
+		owners[owner]++
 
 		known := map[string]bool{}
 		versions, _ := pm["versions"].([]any)
@@ -166,19 +173,71 @@ func main() {
 		}
 	}
 
+	// Now the inverse question the loop above structurally cannot ask: is there
+	// a released plugin repository with NO entry in this index at all? Reported
+	// separately from missing versions because the remedy differs — -write can
+	// add a version to an existing entry, but it cannot invent a plugin's
+	// description, track, or maintainers, so an absent plugin needs a human.
+	var unlisted []string
+	if owner := dominantOwner(owners); owner != "" {
+		repos, err := fetchOrgPluginRepos(owner)
+		if err != nil {
+			// Same rule as listing releases: an API failure must never be
+			// indistinguishable from "nothing is unlisted".
+			fatal("listing %s plugin repositories: %v", owner, err)
+		}
+		for _, r := range repos {
+			if indexed[strings.ToLower(r)] {
+				continue
+			}
+			releases, err := fetchReleases(owner, r)
+			if err != nil {
+				fatal("%s: listing releases: %v", r, err)
+			}
+			for _, rel := range releases {
+				if rel.Draft || rel.Prerelease {
+					continue
+				}
+				unlisted = append(unlisted, fmt.Sprintf("%s/%s %s (released %s) — no entry in the index",
+					owner, r, strings.TrimPrefix(rel.TagName, "v"), rel.PublishedAt[:10]))
+				break // newest only; one line per plugin is the actionable signal
+			}
+		}
+	}
+
 	for _, s := range skipped {
 		fmt.Fprintf(os.Stderr, "warning: %s\n", s)
 	}
 
-	if len(missing) == 0 {
+	if len(unlisted) > 0 {
+		sort.Strings(unlisted)
+		fmt.Printf("%d released plugin(s) missing from the index entirely:\n", len(unlisted))
+		for _, u := range unlisted {
+			fmt.Println("  " + u)
+		}
+		fmt.Fprintln(os.Stderr,
+			"\nThese need an index entry authored by hand (name, description, track, maintainers); "+
+				"-write can then fill in versions.")
+	}
+
+	if len(missing) == 0 && len(unlisted) == 0 {
 		fmt.Println("registry index is current — every published release is listed")
 		return
 	}
 
-	sort.Strings(missing)
-	fmt.Printf("%d release(s) missing from the index:\n", len(missing))
-	for _, m := range missing {
-		fmt.Println("  " + m)
+	if len(missing) > 0 {
+		sort.Strings(missing)
+		fmt.Printf("%d release(s) missing from the index:\n", len(missing))
+		for _, m := range missing {
+			fmt.Println("  " + m)
+		}
+	}
+
+	// -write cannot author a missing plugin entry, so it must not report success
+	// and exit 0 while one is outstanding — that is the green-while-broken state
+	// this tool exists to end.
+	if write && len(unlisted) > 0 {
+		defer os.Exit(1)
 	}
 
 	if write && changed {
@@ -195,11 +254,32 @@ func main() {
 	}
 
 	if check {
-		fmt.Fprintln(os.Stderr, "\nA release that is not in the index is not installable: `nox plugin install` "+
-			"resolves from this file, so these versions are invisible to users.\n"+
-			"Run: go run ./cmd/registry-sync -write")
+		if len(missing) > 0 {
+			fmt.Fprintln(os.Stderr, "\nA release that is not in the index is not installable: `nox plugin install` "+
+				"resolves from this file, so these versions are invisible to users.\n"+
+				"Run: go run ./cmd/registry-sync -write")
+		}
 		os.Exit(1)
 	}
+}
+
+// dominantOwner returns the GitHub org that owns most of the indexed plugins.
+//
+// The owner is derived from the index rather than hardcoded so a fork or a
+// renamed org keeps working. Ownership is taken by majority because a single
+// entry pointing at a personal fork must not redirect the unlisted-plugin
+// sweep away from the real org. An empty result disables the sweep, which
+// only loses the extra check — it never produces a wrong answer.
+func dominantOwner(counts map[string]int) string {
+	best, bestN := "", 0
+	for owner, n := range counts {
+		// Ties resolve by name so the result stays deterministic across runs
+		// rather than following Go's randomised map iteration.
+		if n > bestN || (n == bestN && owner < best) {
+			best, bestN = owner, n
+		}
+	}
+	return best
 }
 
 // buildVersion assembles an index entry from a release, taking digests from the
@@ -230,6 +310,31 @@ func buildVersion(owner, repo, ver string, rel ghRelease, existing []any) (entry
 					}
 				}
 			}
+		}
+	}
+
+	// A plugin's FIRST version has nothing to inherit from, which left both
+	// fields empty while cosign_bundle_url was still written. That produces an
+	// entry claiming a signature that cosign cannot check — it exits with
+	// "certificate-identity-regexp is required", so the artifact resolves as
+	// unverified and the default trust policy blocks the install. The entry
+	// looks complete in review; only an actual install reveals it. nox/sast hit
+	// exactly this.
+	//
+	// Fall back to the identity the release workflow necessarily signs with.
+	// This is derived, not guessed: keyless signing stamps the workflow's own
+	// path into the certificate SAN, and every plugin in the fleet releases from
+	// .github/workflows/release.yml — the 20 inherited values are all this same
+	// string. A plugin that ever signs from elsewhere fails verification loudly
+	// at install rather than being silently trusted, so the fallback cannot
+	// widen what is accepted.
+	if bundleURL := cosignBundleURL(rel); bundleURL != "" {
+		if certRe == "" {
+			certRe = fmt.Sprintf(
+				"(?i)https://github.com/%s/%s/.github/workflows/release.yml@.*", owner, repo)
+		}
+		if issuer == "" {
+			issuer = "https://token.actions.githubusercontent.com"
 		}
 	}
 
@@ -334,6 +439,48 @@ func fetchChecksums(rel ghRelease) (map[string]string, error) {
 		}
 	}
 	return sums, nil
+}
+
+// pluginRepoPrefix is the naming convention every plugin repository follows.
+const pluginRepoPrefix = "nox-plugin-"
+
+type ghRepo struct {
+	Name     string `json:"name"`
+	Archived bool   `json:"archived"`
+}
+
+// fetchOrgPluginRepos lists the org's non-archived plugin repositories.
+//
+// This exists because the reconcile loop above walks the plugins ALREADY in the
+// index, so it can only ever ask "is this listed plugin's newest release
+// present?". A plugin with no entry at all is never visited and therefore
+// cannot be reported — the check stays green while the plugin is uninstallable.
+// nox/sast sat in that gap: released, signed, and absent from the index, with
+// every run reporting "index is current".
+func fetchOrgPluginRepos(owner string) ([]string, error) {
+	var out []string
+	for page := 1; ; page++ {
+		body, err := httpGet(fmt.Sprintf("%s/orgs/%s/repos?per_page=100&page=%d", githubAPI, owner, page))
+		if err != nil {
+			return nil, err
+		}
+		var rs []ghRepo
+		if err := json.Unmarshal(body, &rs); err != nil {
+			return nil, fmt.Errorf("decoding repos: %w", err)
+		}
+		if len(rs) == 0 {
+			return out, nil
+		}
+		for _, r := range rs {
+			if r.Archived || !strings.HasPrefix(r.Name, pluginRepoPrefix) {
+				continue
+			}
+			out = append(out, r.Name)
+		}
+		if len(rs) < 100 {
+			return out, nil
+		}
+	}
 }
 
 func fetchReleases(owner, repo string) ([]ghRelease, error) {
