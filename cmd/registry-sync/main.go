@@ -235,6 +235,12 @@ func buildVersion(owner, repo, ver string, rel ghRelease, existing []any) (entry
 
 	var warns []string
 	var arts []any
+	bundleURL := cosignBundleURL(rel)
+	if bundleURL == "" {
+		warns = append(warns, fmt.Sprintf(
+			"%s %s: release published no cosign bundle (checksums.txt.sigstore.json or .sig.bundle) — "+
+				"entries omit signature fields and will install as unverified", repo, ver))
+	}
 	for _, a := range rel.Assets {
 		m := artifactRe.FindStringSubmatch(a.Name)
 		if m == nil {
@@ -247,16 +253,19 @@ func buildVersion(owner, repo, ver string, rel ghRelease, existing []any) (entry
 			warns = append(warns, fmt.Sprintf("%s %s: no checksum for %s — artifact omitted", repo, ver, a.Name))
 			continue
 		}
-		arts = append(arts, map[string]any{
+		art := map[string]any{
 			"os": m[1], "arch": m[2],
 			"url":    a.URL,
 			"size":   a.Size,
 			"digest": "sha256:" + sum,
-			"cosign_bundle_url": fmt.Sprintf(
-				"https://github.com/%s/%s/releases/download/v%s/checksums.txt.sigstore.json", owner, repo, ver),
-			"cosign_cert_identity_regexp": certRe,
-			"cosign_oidc_issuer":          issuer,
-		})
+		}
+		// Only claim a signature when the release actually published one.
+		if bundleURL != "" {
+			art["cosign_bundle_url"] = bundleURL
+			art["cosign_cert_identity_regexp"] = certRe
+			art["cosign_oidc_issuer"] = issuer
+		}
+		arts = append(arts, art)
 	}
 	if len(arts) == 0 {
 		return nil, warns, fmt.Errorf("no verifiable artifacts (checksums.txt missing or unmatched)")
@@ -270,6 +279,36 @@ func buildVersion(owner, repo, ver string, rel ghRelease, existing []any) (entry
 		"artifacts":    arts,
 	}
 	return entry, warns, nil
+}
+
+// cosignBundleURL returns the download URL of the release's cosign bundle,
+// taken from the assets the release actually published rather than assumed from
+// a naming convention.
+//
+// The name changed with cosign v4: it signs to checksums.txt.sigstore.json,
+// where v3 produced checksums.txt.sig.bundle alongside a detached
+// checksums.txt.sig. Hardcoding either one silently produced entries pointing at
+// a file that was never uploaded — the signature download then 404s, the
+// artifact is classified "unverified", and `nox plugin install` is blocked by
+// the default trust policy. Every version published after the plugins moved to
+// cosign v4 was broken this way.
+//
+// v4 is preferred when both are present. An empty result means the release
+// published neither, and the caller omits the cosign fields entirely: the same
+// "never fabricate" rule already applied to checksums. A URL that 404s is worse
+// than no URL, because it blocks the install instead of merely leaving it
+// unsigned.
+func cosignBundleURL(rel ghRelease) string {
+	var legacy string
+	for _, a := range rel.Assets {
+		switch a.Name {
+		case "checksums.txt.sigstore.json":
+			return a.URL
+		case "checksums.txt.sig.bundle":
+			legacy = a.URL
+		}
+	}
+	return legacy
 }
 
 func fetchChecksums(rel ghRelease) (map[string]string, error) {

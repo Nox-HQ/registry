@@ -51,3 +51,51 @@ func TestArtifactReCapturesOSAndArch(t *testing.T) {
 		t.Errorf("os/arch = %q/%q, want linux/arm64", m[1], m[2])
 	}
 }
+
+// The cosign bundle name changed with v4 (checksums.txt.sigstore.json) from v3
+// (checksums.txt.sig.bundle). Assuming either one produced entries pointing at a
+// file that was never uploaded: the signature download 404s, the artifact is
+// classified "unverified", and `nox plugin install` is blocked by the default
+// trust policy. The URL must come from what the release actually published.
+func TestCosignBundleURL(t *testing.T) {
+	asset := func(name, url string) struct {
+		Name string `json:"name"`
+		Size int64  `json:"size"`
+		URL  string `json:"browser_download_url"`
+	} {
+		return struct {
+			Name string `json:"name"`
+			Size int64  `json:"size"`
+			URL  string `json:"browser_download_url"`
+		}{Name: name, URL: url}
+	}
+
+	v4 := ghRelease{}
+	v4.Assets = append(v4.Assets, asset("checksums.txt", "u/checksums.txt"),
+		asset("checksums.txt.sigstore.json", "u/sigstore"))
+	if got := cosignBundleURL(v4); got != "u/sigstore" {
+		t.Errorf("cosign v4 release: got %q, want u/sigstore", got)
+	}
+
+	v3 := ghRelease{}
+	v3.Assets = append(v3.Assets, asset("checksums.txt.sig.bundle", "u/bundle"),
+		asset("checksums.txt.sig", "u/sig"))
+	if got := cosignBundleURL(v3); got != "u/bundle" {
+		t.Errorf("cosign v3 release: got %q, want u/bundle", got)
+	}
+
+	// Both present: prefer v4.
+	both := ghRelease{}
+	both.Assets = append(both.Assets, asset("checksums.txt.sig.bundle", "u/bundle"),
+		asset("checksums.txt.sigstore.json", "u/sigstore"))
+	if got := cosignBundleURL(both); got != "u/sigstore" {
+		t.Errorf("both present: got %q, want u/sigstore", got)
+	}
+
+	// Neither: empty, so the caller omits the fields rather than inventing a URL.
+	none := ghRelease{}
+	none.Assets = append(none.Assets, asset("checksums.txt", "u/checksums.txt"))
+	if got := cosignBundleURL(none); got != "" {
+		t.Errorf("unsigned release: got %q, want empty", got)
+	}
+}
