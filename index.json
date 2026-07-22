@@ -1959,7 +1959,7 @@
     {
       "deprecated": true,
       "deprecation_note": "Superseded by core: policy.fail_on / --severity-threshold / --fail-on-unwaived",
-      "description": "[DEPRECATED] Policy evaluation and CI gate (pass/fail) — severity thresholds, rule allowlists, finding budgets (5 rules)",
+      "description": "Policy evaluation and CI gate (pass/fail) — severity thresholds, rule allowlists, finding budgets (5 rules)",
       "homepage": "https://github.com/Nox-HQ/nox-plugin-policy-gate",
       "license": "Apache-2.0",
       "maintainers": [
@@ -2042,7 +2042,7 @@
     {
       "deprecated": true,
       "deprecation_note": "Superseded by core: nox baseline write/update/diff/migrate + nox vex",
-      "description": "[DEPRECATED] Finding baseline snapshots, diff, triage — brownfield migration enabler (4 rules)",
+      "description": "Finding baseline snapshots, diff, triage — brownfield migration enabler (4 rules)",
       "homepage": "https://github.com/Nox-HQ/nox-plugin-baseline-mgmt",
       "license": "Apache-2.0",
       "maintainers": [
@@ -4121,7 +4121,7 @@
     {
       "deprecated": true,
       "deprecation_note": "Retired in nox 1.10.0: seven of its nine rules duplicated classes core's taint engine already detects, reporting each twice. Its two additive rules are now core — CRYPTO-001 (weak crypto) and TAINT-007 (open redirect, taint-gated).",
-      "description": "[DEPRECATED] Multi-language static application security testing for common vulnerability classes.",
+      "description": "Multi-language static application security testing for common vulnerability classes.",
       "homepage": "https://github.com/nox-hq/nox-plugin-sast",
       "license": "Apache-2.0",
       "maintainers": [
