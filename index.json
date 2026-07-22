@@ -4119,7 +4119,9 @@
       ]
     },
     {
-      "description": "Multi-language static application security testing for common vulnerability classes.",
+      "deprecated": true,
+      "deprecation_note": "Retired in nox 1.10.0: seven of its nine rules duplicated classes core's taint engine already detects, reporting each twice. Its two additive rules are now core — CRYPTO-001 (weak crypto) and TAINT-007 (open redirect, taint-gated).",
+      "description": "[DEPRECATED] Multi-language static application security testing for common vulnerability classes.",
       "homepage": "https://github.com/nox-hq/nox-plugin-sast",
       "license": "Apache-2.0",
       "maintainers": [
