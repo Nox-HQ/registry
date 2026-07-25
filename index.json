@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T08:33:31Z",
+  "generated_at": "2026-07-25T15:00:24Z",
   "plugins": [
     {
       "description": "Multi-language reachability analysis. Annotates VULN findings as REACH-001 (unreachable), REACH-002 (reachable), or REACH-003 (undetermined). Supports Go, PyPI, npm, Cargo, Maven, RubyGems, NuGet. Bundled by default in the nox release archive.",
@@ -2325,6 +2325,66 @@
           "minimum_nox_version": "0.6.0",
           "published_at": "2026-07-20T17:37:25.954709953Z",
           "version": "0.2.2"
+        },
+        {
+          "api_version": "v1",
+          "artifacts": [
+            {
+              "arch": "amd64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-depconfusion/releases/download/v0.2.3/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-depconfusion/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:d53e86ab58834e8766e9a7fcd93618f409c66b260de3d7f01a149f8d705275e8",
+              "os": "darwin",
+              "size": 4326092,
+              "url": "https://github.com/Nox-HQ/nox-plugin-depconfusion/releases/download/v0.2.3/nox-plugin-depconfusion_0.2.3_darwin_amd64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-depconfusion/releases/download/v0.2.3/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-depconfusion/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:697a3d63ba37cd225b8db0ac493acc9f1360ecbf908c59724088a102b97a8692",
+              "os": "darwin",
+              "size": 4039647,
+              "url": "https://github.com/Nox-HQ/nox-plugin-depconfusion/releases/download/v0.2.3/nox-plugin-depconfusion_0.2.3_darwin_arm64.tar.gz"
+            },
+            {
+              "arch": "amd64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-depconfusion/releases/download/v0.2.3/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-depconfusion/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:a176e454fef5282326420e8d2afe78dfb1a7350567c48e42df6e0ab7d66e7bbf",
+              "os": "linux",
+              "size": 4227990,
+              "url": "https://github.com/Nox-HQ/nox-plugin-depconfusion/releases/download/v0.2.3/nox-plugin-depconfusion_0.2.3_linux_amd64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-depconfusion/releases/download/v0.2.3/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-depconfusion/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:6aa36e8087562d92daa602baa7774c49954d22300930eb2bbb9060da99555532",
+              "os": "linux",
+              "size": 3862630,
+              "url": "https://github.com/Nox-HQ/nox-plugin-depconfusion/releases/download/v0.2.3/nox-plugin-depconfusion_0.2.3_linux_arm64.tar.gz"
+            },
+            {
+              "arch": "amd64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-depconfusion/releases/download/v0.2.3/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-depconfusion/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:6d41f2afa2bacbb431edb38f4428ad009298231f89b808d2b0af836e4fc5ce07",
+              "os": "windows",
+              "size": 4359465,
+              "url": "https://github.com/Nox-HQ/nox-plugin-depconfusion/releases/download/v0.2.3/nox-plugin-depconfusion_0.2.3_windows_amd64.zip"
+            }
+          ],
+          "capabilities": [
+            "scan"
+          ],
+          "published_at": "2026-07-25T14:51:58Z",
+          "version": "0.2.3"
         }
       ]
     },
