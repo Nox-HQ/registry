@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T22:01:55Z",
+  "generated_at": "2026-07-25T22:18:41Z",
   "plugins": [
     {
       "description": "Multi-language reachability analysis. Annotates VULN findings as REACH-001 (unreachable), REACH-002 (reachable), or REACH-003 (undetermined). Supports Go, PyPI, npm, Cargo, Maven, RubyGems, NuGet. Bundled by default in the nox release archive.",
@@ -3859,6 +3859,66 @@
           "minimum_nox_version": "0.6.0",
           "published_at": "2026-07-20T17:37:20.432110535Z",
           "version": "0.2.2"
+        },
+        {
+          "api_version": "v1",
+          "artifacts": [
+            {
+              "arch": "amd64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-attack-surface/releases/download/v0.3.0/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-attack-surface/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:fe08d14a78c1a720d6112262bd5420c5df1d2b3407a528aed25f236575b76982",
+              "os": "darwin",
+              "size": 4369089,
+              "url": "https://github.com/Nox-HQ/nox-plugin-attack-surface/releases/download/v0.3.0/nox-plugin-attack-surface_0.3.0_darwin_amd64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-attack-surface/releases/download/v0.3.0/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-attack-surface/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:4e53ceab038015644c2e87c74035aa657d5a7d75573d76f41d7af84388cca3e8",
+              "os": "darwin",
+              "size": 4081529,
+              "url": "https://github.com/Nox-HQ/nox-plugin-attack-surface/releases/download/v0.3.0/nox-plugin-attack-surface_0.3.0_darwin_arm64.tar.gz"
+            },
+            {
+              "arch": "amd64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-attack-surface/releases/download/v0.3.0/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-attack-surface/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:e90345f7c1e9d5992060c8a4cd8c7cab31924f67cf612a368133bca8cbb3c63d",
+              "os": "linux",
+              "size": 4261145,
+              "url": "https://github.com/Nox-HQ/nox-plugin-attack-surface/releases/download/v0.3.0/nox-plugin-attack-surface_0.3.0_linux_amd64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-attack-surface/releases/download/v0.3.0/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-attack-surface/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:1763dceb4a998eb5bd3d32cc40758cc71d54d15a5c4c666ab5ac0fe41549ded7",
+              "os": "linux",
+              "size": 3893650,
+              "url": "https://github.com/Nox-HQ/nox-plugin-attack-surface/releases/download/v0.3.0/nox-plugin-attack-surface_0.3.0_linux_arm64.tar.gz"
+            },
+            {
+              "arch": "amd64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-attack-surface/releases/download/v0.3.0/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-attack-surface/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:00174c7aa20836400183a7e18fa17fe156acc7fc7864edf0d0efbb2ce239895a",
+              "os": "windows",
+              "size": 4393379,
+              "url": "https://github.com/Nox-HQ/nox-plugin-attack-surface/releases/download/v0.3.0/nox-plugin-attack-surface_0.3.0_windows_amd64.zip"
+            }
+          ],
+          "capabilities": [
+            "scan"
+          ],
+          "published_at": "2026-07-25T22:17:36Z",
+          "version": "0.3.0"
         }
       ]
     },
