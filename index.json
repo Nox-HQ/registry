@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T15:55:12Z",
+  "generated_at": "2026-07-25T16:12:35Z",
   "plugins": [
     {
       "description": "Multi-language reachability analysis. Annotates VULN findings as REACH-001 (unreachable), REACH-002 (reachable), or REACH-003 (undetermined). Supports Go, PyPI, npm, Cargo, Maven, RubyGems, NuGet. Bundled by default in the nox release archive.",
@@ -1405,6 +1405,68 @@
           ],
           "published_at": "2026-07-25T15:54:18Z",
           "version": "0.7.2"
+        },
+        {
+          "api_version": "v1",
+          "artifacts": [
+            {
+              "arch": "amd64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-grc/releases/download/v0.7.3/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-grc/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:e6f2b0fb1831eb1da4791d5371c5c63464971ccee95872797733d02245183c90",
+              "os": "darwin",
+              "size": 4857103,
+              "url": "https://github.com/Nox-HQ/nox-plugin-grc/releases/download/v0.7.3/nox-plugin-grc_0.7.3_darwin_amd64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-grc/releases/download/v0.7.3/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-grc/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:0162362260197d96bfc0775038e75d60bc41ab1946e1f2143bba9dc1f0847532",
+              "os": "darwin",
+              "size": 4532769,
+              "url": "https://github.com/Nox-HQ/nox-plugin-grc/releases/download/v0.7.3/nox-plugin-grc_0.7.3_darwin_arm64.tar.gz"
+            },
+            {
+              "arch": "amd64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-grc/releases/download/v0.7.3/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-grc/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:c84b40a1abd1cdd7311297a40911c39b6d820ca35fcb80fbcf6c9827c73a4446",
+              "os": "linux",
+              "size": 4743837,
+              "url": "https://github.com/Nox-HQ/nox-plugin-grc/releases/download/v0.7.3/nox-plugin-grc_0.7.3_linux_amd64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-grc/releases/download/v0.7.3/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-grc/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:211df473a88e836930ba45ad1369e3bc123134d9c74fca959e72fec1ec2fbaa3",
+              "os": "linux",
+              "size": 4330232,
+              "url": "https://github.com/Nox-HQ/nox-plugin-grc/releases/download/v0.7.3/nox-plugin-grc_0.7.3_linux_arm64.tar.gz"
+            },
+            {
+              "arch": "amd64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-grc/releases/download/v0.7.3/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-grc/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:0c56c146770ae2f74924116ef9a324e5665a89b84b19e2cc1a33bf69444d5159",
+              "os": "windows",
+              "size": 4880125,
+              "url": "https://github.com/Nox-HQ/nox-plugin-grc/releases/download/v0.7.3/nox-plugin-grc_0.7.3_windows_amd64.zip"
+            }
+          ],
+          "capabilities": [
+            "assess",
+            "gap_report",
+            "evidence"
+          ],
+          "published_at": "2026-07-25T16:11:49Z",
+          "version": "0.7.3"
         }
       ]
     },
