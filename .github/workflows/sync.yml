@@ -23,7 +23,7 @@ on:
     paths:
       - 'index.json'
       - 'cmd/registry-sync/**'
-      - '.github/workflows/registry-sync.yml'
+      - '.github/workflows/sync.yml'
   schedule:
     # Daily. Releases are infrequent; a tighter loop would only add API calls.
     - cron: '17 6 * * *'
@@ -35,6 +35,15 @@ permissions:
 jobs:
   check:
     name: Index is current
+    # Pull requests only. On a schedule or a dispatch, reconcile below opens a
+    # PR with the missing entries — so a red check there is the expected
+    # outcome of the automation working, printed next to the PR that fixes it.
+    # That is how it reads as breakage: dispatching this workflow after a
+    # release shows a failing "Index is current" job, which says the index was
+    # not written, while "Reconcile index" has already written it. The alarm
+    # still fires where nothing else is watching: a PR that leaves the index
+    # stale, and reconcile's own failure, which reddens its own job.
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
