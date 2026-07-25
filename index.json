@@ -1073,7 +1073,7 @@
       ]
     },
     {
-      "description": "Governance, Risk \u0026 Compliance assessment with 10 framework coverage, gap analysis, and evidence collection",
+      "description": "Governance, Risk \u0026 Compliance assessment with 13-framework coverage, gap analysis, and evidence collection",
       "homepage": "https://github.com/nox-hq/nox-plugin-grc",
       "license": "Apache-2.0",
       "maintainers": [
