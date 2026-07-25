@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T15:00:24Z",
+  "generated_at": "2026-07-25T15:55:12Z",
   "plugins": [
     {
       "description": "Multi-language reachability analysis. Annotates VULN findings as REACH-001 (unreachable), REACH-002 (reachable), or REACH-003 (undetermined). Supports Go, PyPI, npm, Cargo, Maven, RubyGems, NuGet. Bundled by default in the nox release archive.",
@@ -1343,6 +1343,68 @@
           "minimum_nox_version": "0.6.0",
           "published_at": "2026-07-20T17:37:42.028528975Z",
           "version": "0.7.1"
+        },
+        {
+          "api_version": "v1",
+          "artifacts": [
+            {
+              "arch": "amd64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-grc/releases/download/v0.7.2/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-grc/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:467ab1eefce7da73ec2937941616d4adb655c3d5959f10355e8a04d7dadcab91",
+              "os": "darwin",
+              "size": 4857081,
+              "url": "https://github.com/Nox-HQ/nox-plugin-grc/releases/download/v0.7.2/nox-plugin-grc_0.7.2_darwin_amd64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-grc/releases/download/v0.7.2/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-grc/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:6df5587c006fd7085075356908769a6564c1fa0f80d5eeae6861d07474ed0265",
+              "os": "darwin",
+              "size": 4532730,
+              "url": "https://github.com/Nox-HQ/nox-plugin-grc/releases/download/v0.7.2/nox-plugin-grc_0.7.2_darwin_arm64.tar.gz"
+            },
+            {
+              "arch": "amd64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-grc/releases/download/v0.7.2/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-grc/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:b6d8ee5d7ef8b4ffb0191fff35019144433598530f0d48d1b150ef24b0c4debf",
+              "os": "linux",
+              "size": 4743817,
+              "url": "https://github.com/Nox-HQ/nox-plugin-grc/releases/download/v0.7.2/nox-plugin-grc_0.7.2_linux_amd64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-grc/releases/download/v0.7.2/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-grc/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:7021a992562a018f0ee07afd1c3a357c1a754ff50c10b07a828611abf23a3d2a",
+              "os": "linux",
+              "size": 4330209,
+              "url": "https://github.com/Nox-HQ/nox-plugin-grc/releases/download/v0.7.2/nox-plugin-grc_0.7.2_linux_arm64.tar.gz"
+            },
+            {
+              "arch": "amd64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-grc/releases/download/v0.7.2/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-grc/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:35eca6fde898f7107246aadae6f16e30d95ae634b2edc95930958ed2d4d47d4a",
+              "os": "windows",
+              "size": 4880088,
+              "url": "https://github.com/Nox-HQ/nox-plugin-grc/releases/download/v0.7.2/nox-plugin-grc_0.7.2_windows_amd64.zip"
+            }
+          ],
+          "capabilities": [
+            "assess",
+            "gap_report",
+            "evidence"
+          ],
+          "published_at": "2026-07-25T15:54:18Z",
+          "version": "0.7.2"
         }
       ]
     },
