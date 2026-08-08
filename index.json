@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-26T07:06:04Z",
+  "generated_at": "2026-08-08T06:27:31Z",
   "plugins": [
     {
       "description": "Multi-language reachability analysis. Annotates VULN findings as REACH-001 (unreachable), REACH-002 (reachable), or REACH-003 (undetermined). Supports Go, PyPI, npm, Cargo, Maven, RubyGems, NuGet.",
@@ -772,6 +772,66 @@
           ],
           "published_at": "2026-07-25T22:32:43Z",
           "version": "0.7.2"
+        },
+        {
+          "api_version": "v1",
+          "artifacts": [
+            {
+              "arch": "amd64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-taint-analysis/releases/download/v0.7.3/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-taint-analysis/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:94fd27131e41155f24cbbdb4cdcc251c6ad7b14916aab07a1163b345c0fbee86",
+              "os": "darwin",
+              "size": 4528210,
+              "url": "https://github.com/Nox-HQ/nox-plugin-taint-analysis/releases/download/v0.7.3/nox-plugin-taint-analysis_0.7.3_darwin_amd64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-taint-analysis/releases/download/v0.7.3/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-taint-analysis/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:5242556a53e9c3a7dfbde0ff733f5c81af28dac48326a73d56f82947f24eef8c",
+              "os": "darwin",
+              "size": 4224619,
+              "url": "https://github.com/Nox-HQ/nox-plugin-taint-analysis/releases/download/v0.7.3/nox-plugin-taint-analysis_0.7.3_darwin_arm64.tar.gz"
+            },
+            {
+              "arch": "amd64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-taint-analysis/releases/download/v0.7.3/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-taint-analysis/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:7a7565889d7250fff76d17da392fdecdf77a5ac16197f168e611a3c874810079",
+              "os": "linux",
+              "size": 4417747,
+              "url": "https://github.com/Nox-HQ/nox-plugin-taint-analysis/releases/download/v0.7.3/nox-plugin-taint-analysis_0.7.3_linux_amd64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-taint-analysis/releases/download/v0.7.3/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-taint-analysis/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:01998760e018eccf38bce0293b7256d86e39ca8c62cf7c629df46534590e99c9",
+              "os": "linux",
+              "size": 4031578,
+              "url": "https://github.com/Nox-HQ/nox-plugin-taint-analysis/releases/download/v0.7.3/nox-plugin-taint-analysis_0.7.3_linux_arm64.tar.gz"
+            },
+            {
+              "arch": "amd64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-taint-analysis/releases/download/v0.7.3/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-taint-analysis/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:8e64675d5fec9e14d24e6fd45eec9b50105b9100f63e20b6f8f562487bf8318d",
+              "os": "windows",
+              "size": 4549966,
+              "url": "https://github.com/Nox-HQ/nox-plugin-taint-analysis/releases/download/v0.7.3/nox-plugin-taint-analysis_0.7.3_windows_amd64.zip"
+            }
+          ],
+          "capabilities": [
+            "scan"
+          ],
+          "published_at": "2026-08-08T06:25:40Z",
+          "version": "0.7.3"
         }
       ]
     },
@@ -3377,6 +3437,66 @@
           "minimum_nox_version": "0.6.0",
           "published_at": "2026-07-20T17:37:28.437339034Z",
           "version": "0.2.2"
+        },
+        {
+          "api_version": "v1",
+          "artifacts": [
+            {
+              "arch": "amd64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-threat-enrich/releases/download/v0.3.0/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-threat-enrich/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:b20eb31e49093bd66133fdc6068e9ed5b0619ca99345907dfd10dedaabc8e2c8",
+              "os": "darwin",
+              "size": 4347200,
+              "url": "https://github.com/Nox-HQ/nox-plugin-threat-enrich/releases/download/v0.3.0/nox-plugin-threat-enrich_0.3.0_darwin_amd64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-threat-enrich/releases/download/v0.3.0/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-threat-enrich/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:358427801a5137303d244a3df14352332e8b0f890fab0399b42ecf308612e49d",
+              "os": "darwin",
+              "size": 4061274,
+              "url": "https://github.com/Nox-HQ/nox-plugin-threat-enrich/releases/download/v0.3.0/nox-plugin-threat-enrich_0.3.0_darwin_arm64.tar.gz"
+            },
+            {
+              "arch": "amd64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-threat-enrich/releases/download/v0.3.0/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-threat-enrich/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:c81a4db3503ba119f50763a7c7e4c5a4663cd1d8fb4559b058e7e8e131b81361",
+              "os": "linux",
+              "size": 4239187,
+              "url": "https://github.com/Nox-HQ/nox-plugin-threat-enrich/releases/download/v0.3.0/nox-plugin-threat-enrich_0.3.0_linux_amd64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-threat-enrich/releases/download/v0.3.0/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-threat-enrich/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:239642901ebdf9c92b86ef056e5b17c5c6be2e33be6b990eb44255d98cbcc64d",
+              "os": "linux",
+              "size": 3874807,
+              "url": "https://github.com/Nox-HQ/nox-plugin-threat-enrich/releases/download/v0.3.0/nox-plugin-threat-enrich_0.3.0_linux_arm64.tar.gz"
+            },
+            {
+              "arch": "amd64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-threat-enrich/releases/download/v0.3.0/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-threat-enrich/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:37a6ec73b7fa867434a3afeb07cd8d14116cd4fe6a2d5a89331c639deff2f236",
+              "os": "windows",
+              "size": 4369663,
+              "url": "https://github.com/Nox-HQ/nox-plugin-threat-enrich/releases/download/v0.3.0/nox-plugin-threat-enrich_0.3.0_windows_amd64.zip"
+            }
+          ],
+          "capabilities": [
+            "scan"
+          ],
+          "published_at": "2026-08-02T11:56:32Z",
+          "version": "0.3.0"
         }
       ]
     },
@@ -3582,6 +3702,66 @@
           "minimum_nox_version": "0.6.0",
           "published_at": "2026-07-20T17:37:48.614715189Z",
           "version": "0.2.2"
+        },
+        {
+          "api_version": "v1",
+          "artifacts": [
+            {
+              "arch": "amd64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-triage-agent/releases/download/v0.3.0/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-triage-agent/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:b8b7c71262faca56df0b2c7831723ae8a091e8c63fef8d7a6437817dc98ab7a8",
+              "os": "darwin",
+              "size": 4942173,
+              "url": "https://github.com/Nox-HQ/nox-plugin-triage-agent/releases/download/v0.3.0/nox-plugin-triage-agent_0.3.0_darwin_amd64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-triage-agent/releases/download/v0.3.0/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-triage-agent/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:e4ad9fe4c8b9e1d7cc916c139bcecfc9f77a3c8e18ca3c452a33e90afee42244",
+              "os": "darwin",
+              "size": 4598765,
+              "url": "https://github.com/Nox-HQ/nox-plugin-triage-agent/releases/download/v0.3.0/nox-plugin-triage-agent_0.3.0_darwin_arm64.tar.gz"
+            },
+            {
+              "arch": "amd64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-triage-agent/releases/download/v0.3.0/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-triage-agent/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:180ab0765fdf2cce9161846da631ffe85033281f90a82ff05407cfbd5c156824",
+              "os": "linux",
+              "size": 4821211,
+              "url": "https://github.com/Nox-HQ/nox-plugin-triage-agent/releases/download/v0.3.0/nox-plugin-triage-agent_0.3.0_linux_amd64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-triage-agent/releases/download/v0.3.0/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-triage-agent/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:fe9298ddb9311140d4428cba2f5a45211d9fa407ef8ab8f58f519c486131d828",
+              "os": "linux",
+              "size": 4391867,
+              "url": "https://github.com/Nox-HQ/nox-plugin-triage-agent/releases/download/v0.3.0/nox-plugin-triage-agent_0.3.0_linux_arm64.tar.gz"
+            },
+            {
+              "arch": "amd64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-triage-agent/releases/download/v0.3.0/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-triage-agent/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:d3733753daf40f2b3bc29a40ee6aebc08c266bd5044d5cade60095a6e95f294e",
+              "os": "windows",
+              "size": 4961025,
+              "url": "https://github.com/Nox-HQ/nox-plugin-triage-agent/releases/download/v0.3.0/nox-plugin-triage-agent_0.3.0_windows_amd64.zip"
+            }
+          ],
+          "capabilities": [
+            "scan"
+          ],
+          "published_at": "2026-08-02T11:46:00Z",
+          "version": "0.3.0"
         }
       ]
     },
@@ -4197,6 +4377,66 @@
           "minimum_nox_version": "0.6.0",
           "published_at": "2026-07-20T17:37:34.060178433Z",
           "version": "0.2.2"
+        },
+        {
+          "api_version": "v1",
+          "artifacts": [
+            {
+              "arch": "amd64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-api-abuse/releases/download/v0.2.3/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-api-abuse/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:b020208272102abe9cec4e99219db54b7f44ed750f6b9f99f3cde423c1fbc503",
+              "os": "darwin",
+              "size": 4352381,
+              "url": "https://github.com/Nox-HQ/nox-plugin-api-abuse/releases/download/v0.2.3/nox-plugin-api-abuse_0.2.3_darwin_amd64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-api-abuse/releases/download/v0.2.3/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-api-abuse/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:e5ad6b19fe1746fa62bbb036f5ad4620de6026e10d38d89aad7189d919cb22d0",
+              "os": "darwin",
+              "size": 4061603,
+              "url": "https://github.com/Nox-HQ/nox-plugin-api-abuse/releases/download/v0.2.3/nox-plugin-api-abuse_0.2.3_darwin_arm64.tar.gz"
+            },
+            {
+              "arch": "amd64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-api-abuse/releases/download/v0.2.3/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-api-abuse/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:45b1cc018abea9edaa55a1f258c6e5c1bb9c82d7a48bcbff46b5cb2ad2d02aac",
+              "os": "linux",
+              "size": 4241800,
+              "url": "https://github.com/Nox-HQ/nox-plugin-api-abuse/releases/download/v0.2.3/nox-plugin-api-abuse_0.2.3_linux_amd64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-api-abuse/releases/download/v0.2.3/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-api-abuse/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:0db56d36c7fa6e269a1deba61c0546a028dcdc02fe6445c9fb895ea94b6bb825",
+              "os": "linux",
+              "size": 3877572,
+              "url": "https://github.com/Nox-HQ/nox-plugin-api-abuse/releases/download/v0.2.3/nox-plugin-api-abuse_0.2.3_linux_arm64.tar.gz"
+            },
+            {
+              "arch": "amd64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-api-abuse/releases/download/v0.2.3/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-api-abuse/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:1592d4385da73796d286c141dbaaa5f0bf5787214d1e622a357a66237fa2ab8d",
+              "os": "windows",
+              "size": 4375768,
+              "url": "https://github.com/Nox-HQ/nox-plugin-api-abuse/releases/download/v0.2.3/nox-plugin-api-abuse_0.2.3_windows_amd64.zip"
+            }
+          ],
+          "capabilities": [
+            "scan"
+          ],
+          "published_at": "2026-08-02T11:05:23Z",
+          "version": "0.2.3"
         }
       ]
     },
