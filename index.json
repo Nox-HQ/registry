@@ -833,7 +833,9 @@
           "published_at": "2026-08-08T06:25:40Z",
           "version": "0.7.3"
         }
-      ]
+      ],
+      "deprecated": true,
+      "deprecation_note": "Retired and archived: superseded by nox core's taint engine, which since nox 1.33.0 reports everything this plugin did and more. Remove it with `nox plugin remove nox/taint-analysis`; core needs no configuration to replace it."
     },
     {
       "description": "Inspect running Kubernetes workloads for security misconfigurations",
@@ -1491,7 +1493,9 @@
           "published_at": "2026-07-25T22:32:12Z",
           "version": "0.7.2"
         }
-      ]
+      ],
+      "deprecated": true,
+      "deprecation_note": "Retired and archived: superseded by `nox attack` in core, which builds exploit hypotheses from static findings and the AI inventory and validates them against a running target with evidence-backed traces. This plugin duplicated that job, and its implementation was empty."
     },
     {
       "description": "Governance, Risk \u0026 Compliance assessment with 13-framework coverage, gap analysis, and evidence collection",
@@ -4173,7 +4177,9 @@
           "published_at": "2026-07-20T17:37:36.778457342Z",
           "version": "0.2.2"
         }
-      ]
+      ],
+      "deprecated": true,
+      "deprecation_note": "Retired and archived: superseded by nox core, which emits CWE metadata and references, and by nox/threat-enrich for CWE → OWASP → ATT\u0026CK write-ups. Its scan tool returned {} for every input."
     },
     {
       "description": "API authorization testing for BOLA, BFLA, rate-limit, and abuse patterns in server code (5 rules)",
@@ -4972,7 +4978,9 @@
           "published_at": "2026-07-25T22:32:13Z",
           "version": "0.2.3"
         }
-      ]
+      ],
+      "deprecated": true,
+      "deprecation_note": "Retired and archived: EPSS and KEV prioritisation is served by NOX Intelligence, the default advisory source for every online scan since nox 1.33.0. This plugin never had a working data path, and its stub answered in the dangerous direction (a false negative)."
     },
     {
       "description": "Deterministic remediation planning and application for code findings",
