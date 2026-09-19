@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-08T06:27:31Z",
+  "generated_at": "2026-09-19T12:25:01Z",
   "plugins": [
     {
       "description": "Multi-language reachability analysis. Annotates VULN findings as REACH-001 (unreachable), REACH-002 (reachable), or REACH-003 (undetermined). Supports Go, PyPI, npm, Cargo, Maven, RubyGems, NuGet.",
@@ -448,6 +448,8 @@
       ]
     },
     {
+      "deprecated": true,
+      "deprecation_note": "Retired and archived: superseded by nox core's taint engine, which since nox 1.33.0 reports everything this plugin did and more. Remove it with `nox plugin remove nox/taint-analysis`; core needs no configuration to replace it.",
       "description": "Intraprocedural taint analysis tracking data flow from untrusted sources to dangerous sinks",
       "homepage": "https://github.com/nox-hq/nox-plugin-taint-analysis",
       "license": "Apache-2.0",
@@ -833,9 +835,7 @@
           "published_at": "2026-08-08T06:25:40Z",
           "version": "0.7.3"
         }
-      ],
-      "deprecated": true,
-      "deprecation_note": "Retired and archived: superseded by nox core's taint engine, which since nox 1.33.0 reports everything this plugin did and more. Remove it with `nox plugin remove nox/taint-analysis`; core needs no configuration to replace it."
+      ]
     },
     {
       "description": "Inspect running Kubernetes workloads for security misconfigurations",
@@ -1165,6 +1165,8 @@
       ]
     },
     {
+      "deprecated": true,
+      "deprecation_note": "Retired and archived: superseded by `nox attack` in core, which builds exploit hypotheses from static findings and the AI inventory and validates them against a running target with evidence-backed traces. This plugin duplicated that job, and its implementation was empty.",
       "description": "AI-powered attack path analysis and exploit validation for security findings",
       "homepage": "https://github.com/nox-hq/nox-plugin-red-team",
       "license": "Apache-2.0",
@@ -1493,9 +1495,7 @@
           "published_at": "2026-07-25T22:32:12Z",
           "version": "0.7.2"
         }
-      ],
-      "deprecated": true,
-      "deprecation_note": "Retired and archived: superseded by `nox attack` in core, which builds exploit hypotheses from static findings and the AI inventory and validates them against a running target with evidence-backed traces. This plugin duplicated that job, and its implementation was empty."
+      ]
     },
     {
       "description": "Governance, Risk \u0026 Compliance assessment with 13-framework coverage, gap analysis, and evidence collection",
@@ -3975,6 +3975,8 @@
       ]
     },
     {
+      "deprecated": true,
+      "deprecation_note": "Retired and archived: superseded by nox core, which emits CWE metadata and references, and by nox/threat-enrich for CWE → OWASP → ATT\u0026CK write-ups. Its scan tool returned {} for every input.",
       "description": "LLM-enhanced finding explanations and impact analysis with audience targeting (8 rules + LLM)",
       "homepage": "https://github.com/Nox-HQ/nox-plugin-threat-explain",
       "license": "Apache-2.0",
@@ -4177,9 +4179,7 @@
           "published_at": "2026-07-20T17:37:36.778457342Z",
           "version": "0.2.2"
         }
-      ],
-      "deprecated": true,
-      "deprecation_note": "Retired and archived: superseded by nox core, which emits CWE metadata and references, and by nox/threat-enrich for CWE → OWASP → ATT\u0026CK write-ups. Its scan tool returned {} for every input."
+      ]
     },
     {
       "description": "API authorization testing for BOLA, BFLA, rate-limit, and abuse patterns in server code (5 rules)",
@@ -4712,6 +4712,8 @@
       ]
     },
     {
+      "deprecated": true,
+      "deprecation_note": "Retired and archived: EPSS and KEV prioritisation is served by NOX Intelligence, the default advisory source for every online scan since nox 1.33.0. This plugin never had a working data path, and its stub answered in the dangerous direction (a false negative).",
       "description": "EPSS / KEV vulnerability prioritization and severity scoring with environmental risk amplification (5 rules)",
       "homepage": "https://github.com/Nox-HQ/nox-plugin-risk-score",
       "license": "Apache-2.0",
@@ -4978,9 +4980,7 @@
           "published_at": "2026-07-25T22:32:13Z",
           "version": "0.2.3"
         }
-      ],
-      "deprecated": true,
-      "deprecation_note": "Retired and archived: EPSS and KEV prioritisation is served by NOX Intelligence, the default advisory source for every online scan since nox 1.33.0. This plugin never had a working data path, and its stub answered in the dangerous direction (a false negative)."
+      ]
     },
     {
       "description": "Deterministic remediation planning and application for code findings",
@@ -5467,6 +5467,80 @@
           "capabilities": null,
           "published_at": "2026-06-03T19:57:46Z",
           "version": "0.2.1"
+        }
+      ]
+    },
+    {
+      "description": "Flags dependencies whose provenance is suspicious rather than whose version has an advisory: a version published inside the review window, withdrawn from its registry, or released by a different publisher than its predecessor (npm, Go)",
+      "homepage": "https://github.com/Nox-HQ/nox-plugin-freshness",
+      "license": "Apache-2.0",
+      "maintainers": [
+        "nox-hq"
+      ],
+      "name": "nox/freshness",
+      "repository": "https://github.com/Nox-HQ/nox-plugin-freshness",
+      "track": "supply-chain",
+      "versions": [
+        {
+          "api_version": "v1",
+          "artifacts": [
+            {
+              "arch": "amd64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-freshness/releases/download/v0.1.0/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/Nox-HQ/nox-plugin-freshness/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:b320322a4ca318712d162a31ced1205cd20f7baf63af7fb91371575cd6c8cfb0",
+              "os": "darwin",
+              "size": 4959457,
+              "url": "https://github.com/Nox-HQ/nox-plugin-freshness/releases/download/v0.1.0/nox-plugin-freshness_0.1.0_darwin_amd64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-freshness/releases/download/v0.1.0/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/Nox-HQ/nox-plugin-freshness/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:460866e7defb748ffde84a25724723d0c56f240a66102c24d19b45bbd2e09731",
+              "os": "darwin",
+              "size": 4605238,
+              "url": "https://github.com/Nox-HQ/nox-plugin-freshness/releases/download/v0.1.0/nox-plugin-freshness_0.1.0_darwin_arm64.tar.gz"
+            },
+            {
+              "arch": "amd64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-freshness/releases/download/v0.1.0/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/Nox-HQ/nox-plugin-freshness/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:ee37f7ffb4e917aa4bff5648b825bfeec5966008bbf00dc37dd9b32651748ad2",
+              "os": "linux",
+              "size": 4836657,
+              "url": "https://github.com/Nox-HQ/nox-plugin-freshness/releases/download/v0.1.0/nox-plugin-freshness_0.1.0_linux_amd64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-freshness/releases/download/v0.1.0/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/Nox-HQ/nox-plugin-freshness/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:3196954e89df20cbd4b6c3b5426af0909a70f96c2adccd9b5c9c896ae4fa0a5d",
+              "os": "linux",
+              "size": 4395194,
+              "url": "https://github.com/Nox-HQ/nox-plugin-freshness/releases/download/v0.1.0/nox-plugin-freshness_0.1.0_linux_arm64.tar.gz"
+            },
+            {
+              "arch": "amd64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-freshness/releases/download/v0.1.0/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/Nox-HQ/nox-plugin-freshness/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:9e56d1f40de61810967eb2900e4389bc7380f2051d204fdb21b0b35937d8b32e",
+              "os": "windows",
+              "size": 4980724,
+              "url": "https://github.com/Nox-HQ/nox-plugin-freshness/releases/download/v0.1.0/nox-plugin-freshness_0.1.0_windows_amd64.zip"
+            }
+          ],
+          "capabilities": [
+            "scan"
+          ],
+          "published_at": "2026-09-19T12:23:35Z",
+          "version": "0.1.0",
+          "minimum_nox_version": "1.38.3"
         }
       ]
     }
