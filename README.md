@@ -1,5 +1,7 @@
 # nox plugin registry
 
+[![nox security grade](.github/nox-badge.svg)](https://github.com/nox-hq/nox)
+
 The index the [nox](https://github.com/nox-hq/nox) CLI resolves plugins from,
 plus the tooling that maintains it.
 
