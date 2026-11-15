@@ -3370,7 +3370,7 @@
             }
           ],
           "capabilities": [
-            "enrich"
+            "scan"
           ],
           "changelog_url": "https://github.com/Nox-HQ/nox-plugin-threat-enrich/blob/main/CHANGELOG.md",
           "digest": "sha256:tbd",
@@ -3433,7 +3433,7 @@
             }
           ],
           "capabilities": [
-            "enrich"
+            "scan"
           ],
           "digest": "sha256:tbd",
           "published_at": "2026-07-05T14:47:56Z",
@@ -3557,7 +3557,7 @@
             }
           ],
           "capabilities": [
-            "scan"
+            "enrich"
           ],
           "published_at": "2026-08-02T11:56:32Z",
           "version": "0.3.0"
@@ -3635,7 +3635,7 @@
             }
           ],
           "capabilities": [
-            "triage"
+            "scan"
           ],
           "changelog_url": "https://github.com/Nox-HQ/nox-plugin-triage-agent/blob/main/CHANGELOG.md",
           "digest": "sha256:tbd",
@@ -3698,7 +3698,7 @@
             }
           ],
           "capabilities": [
-            "triage"
+            "scan"
           ],
           "digest": "sha256:tbd",
           "published_at": "2026-07-05T14:48:10Z",
@@ -3822,7 +3822,7 @@
             }
           ],
           "capabilities": [
-            "scan"
+            "triage"
           ],
           "published_at": "2026-08-02T11:46:00Z",
           "version": "0.3.0"

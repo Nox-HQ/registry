@@ -27,6 +27,7 @@
 package main
 
 import (
+	"encoding/base64"
 	"encoding/json"
 	"flag"
 	"fmt"
@@ -313,6 +314,19 @@ func buildVersion(owner, repo, ver string, rel ghRelease, existing []any) (entry
 		}
 	}
 
+	// Capabilities are the tools the plugin's manifest declares AT THIS TAG.
+	// Inheriting them from the previous entry was correct only until a tool
+	// was renamed: threat-enrich's only tool became "enrich" and
+	// triage-agent's "triage", and both entries still said "scan", every
+	// version after the rename copying the one before it. The inherited list
+	// is kept only when the manifest cannot be read, and that is reported.
+	var capWarn []string
+	if tools, err := fetchManifestTools(owner, repo, rel.TagName); err == nil && len(tools) > 0 {
+		caps = tools
+	} else {
+		capWarn = append(capWarn, fmt.Sprintf("%s/%s %s: capabilities inherited from the previous entry; plugin.yaml unreadable at the tag (%v)", owner, repo, ver, err))
+	}
+
 	// A plugin's FIRST version has nothing to inherit from, which left both
 	// fields empty while cosign_bundle_url was still written. That produces an
 	// entry claiming a signature that cosign cannot check — it exits with
@@ -338,7 +352,7 @@ func buildVersion(owner, repo, ver string, rel ghRelease, existing []any) (entry
 		}
 	}
 
-	var warns []string
+	warns := capWarn
 	var arts []any
 	bundleURL := cosignBundleURL(rel)
 	if bundleURL == "" {
@@ -515,6 +529,70 @@ func httpGet(url string) ([]byte, error) {
 		return nil, fmt.Errorf("GET %s: %s", url, resp.Status)
 	}
 	return io.ReadAll(io.LimitReader(resp.Body, 16<<20))
+}
+
+// fetchManifestTools returns the tool names plugin.yaml declares at ref.
+func fetchManifestTools(owner, repo, ref string) ([]string, error) {
+	body, err := httpGet(fmt.Sprintf("%s/repos/%s/%s/contents/plugin.yaml?ref=%s", githubAPI, owner, repo, ref))
+	if err != nil {
+		return nil, err
+	}
+	var file struct {
+		Content  string `json:"content"`
+		Encoding string `json:"encoding"`
+	}
+	if err := json.Unmarshal(body, &file); err != nil {
+		return nil, err
+	}
+	if file.Encoding != "base64" {
+		return nil, fmt.Errorf("plugin.yaml encoding %q", file.Encoding)
+	}
+	raw, err := base64.StdEncoding.DecodeString(strings.ReplaceAll(file.Content, "\n", ""))
+	if err != nil {
+		return nil, err
+	}
+	return manifestTools(raw), nil
+}
+
+// manifestToolRe matches a list item's name key: "  - name: enrich".
+var manifestToolRe = regexp.MustCompile(`^(\s*)-\s+name:\s*["']?([\w.\-]+)["']?\s*(#.*)?$`)
+
+// manifestTools returns the names of the entries of plugin.yaml's top-level
+// `tools:` list, in order. It reads only that list: an entry nested deeper
+// (an argument of a tool, say) is at a greater indent than the first item and
+// is not a tool, and the list ends at the next top-level key.
+func manifestTools(manifest []byte) []string {
+	var (
+		out    []string
+		inList bool
+		indent = -1
+	)
+	for _, line := range strings.Split(string(manifest), "\n") {
+		trimmed := strings.TrimSpace(line)
+		if !inList {
+			if strings.HasPrefix(line, "tools:") {
+				inList = true
+			}
+			continue
+		}
+		if trimmed == "" || strings.HasPrefix(trimmed, "#") {
+			continue
+		}
+		if line[0] != ' ' && line[0] != '-' && line[0] != '\t' {
+			break // the next top-level key
+		}
+		m := manifestToolRe.FindStringSubmatch(line)
+		if m == nil {
+			continue
+		}
+		if indent < 0 {
+			indent = len(m[1])
+		}
+		if len(m[1]) == indent {
+			out = append(out, m[2])
+		}
+	}
+	return out
 }
 
 func parseRepo(homepage string) (owner, repo string) {

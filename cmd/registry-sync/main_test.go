@@ -1,6 +1,9 @@
 package main
 
-import "testing"
+import (
+	"strings"
+	"testing"
+)
 
 func TestParseRepo(t *testing.T) {
 	for _, c := range []struct{ in, owner, repo string }{
@@ -97,5 +100,24 @@ func TestCosignBundleURL(t *testing.T) {
 	none.Assets = append(none.Assets, asset("checksums.txt", "u/checksums.txt"))
 	if got := cosignBundleURL(none); got != "" {
 		t.Errorf("unsigned release: got %q, want empty", got)
+	}
+}
+
+// The manifests are the two whose index entries had gone stale, reduced: a
+// renamed tool, comments inside the list, and a nested name that is not a tool.
+func TestManifestToolsReadsTheTopLevelToolList(t *testing.T) {
+	cases := []struct {
+		name, manifest string
+		want           []string
+	}{
+		{"threat-enrich", "name: nox-plugin-threat-enrich\nversion: 0.3.0\ntools:\n  # Post-scan: nox hands this tool the findings.\n  - name: enrich\n    description: Attach context\n    requires_scan_context: true\n", []string{"enrich"}},
+		{"several, quoted, then a key", "tools:\n  - name: assess\n    args:\n      - name: framework\n  - name: \"gap_report\"\n  - name: evidence\nsafety:\n  - name: not-a-tool\n", []string{"assess", "gap_report", "evidence"}},
+		{"no tools", "name: x\nversion: 1.0.0\n", nil},
+	}
+	for _, c := range cases {
+		got := manifestTools([]byte(c.manifest))
+		if strings.Join(got, ",") != strings.Join(c.want, ",") {
+			t.Errorf("%s: manifestTools = %v, want %v", c.name, got, c.want)
+		}
 	}
 }
