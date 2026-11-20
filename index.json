@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T13:09:14Z",
+  "generated_at": "2026-11-20T15:35:32Z",
   "plugins": [
     {
       "description": "Multi-language reachability analysis. Annotates VULN findings as REACH-001 (unreachable), REACH-002 (reachable), or REACH-003 (undetermined). Supports Go, PyPI, npm, Cargo, Maven, RubyGems, NuGet.",
@@ -504,6 +504,66 @@
           ],
           "published_at": "2026-10-25T13:06:56Z",
           "version": "0.10.0"
+        },
+        {
+          "api_version": "v1",
+          "artifacts": [
+            {
+              "arch": "amd64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-reachability/releases/download/v0.10.1/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-reachability/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:9642d470ab365c26f65779575b97d6310f4b2979e9f26a9599d039faa2fd4a9d",
+              "os": "darwin",
+              "size": 7042220,
+              "url": "https://github.com/Nox-HQ/nox-plugin-reachability/releases/download/v0.10.1/nox-plugin-reachability_0.10.1_darwin_amd64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-reachability/releases/download/v0.10.1/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-reachability/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:8883d265625ddd8b2d0da29fa83c80f90db258f1d6aa0fcd325586138c9b419d",
+              "os": "darwin",
+              "size": 6481476,
+              "url": "https://github.com/Nox-HQ/nox-plugin-reachability/releases/download/v0.10.1/nox-plugin-reachability_0.10.1_darwin_arm64.tar.gz"
+            },
+            {
+              "arch": "amd64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-reachability/releases/download/v0.10.1/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-reachability/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:be03536a96b1c0c1ef8198be92ab17afefe05ed3039398880df80d46216d560a",
+              "os": "linux",
+              "size": 6880198,
+              "url": "https://github.com/Nox-HQ/nox-plugin-reachability/releases/download/v0.10.1/nox-plugin-reachability_0.10.1_linux_amd64.tar.gz"
+            },
+            {
+              "arch": "arm64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-reachability/releases/download/v0.10.1/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-reachability/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:3afafed51bda6df401744af340d83174ab13de1fbd1237e8a5d226458fadd9cb",
+              "os": "linux",
+              "size": 6197211,
+              "url": "https://github.com/Nox-HQ/nox-plugin-reachability/releases/download/v0.10.1/nox-plugin-reachability_0.10.1_linux_arm64.tar.gz"
+            },
+            {
+              "arch": "amd64",
+              "cosign_bundle_url": "https://github.com/Nox-HQ/nox-plugin-reachability/releases/download/v0.10.1/checksums.txt.sigstore.json",
+              "cosign_cert_identity_regexp": "(?i)https://github.com/nox-hq/nox-plugin-reachability/.github/workflows/release.yml@.*",
+              "cosign_oidc_issuer": "https://token.actions.githubusercontent.com",
+              "digest": "sha256:22b9b7982de9e74881dc5a99557e7f86d15ca712fc6c94ec89e7bcf0bddf0ec8",
+              "os": "windows",
+              "size": 7073170,
+              "url": "https://github.com/Nox-HQ/nox-plugin-reachability/releases/download/v0.10.1/nox-plugin-reachability_0.10.1_windows_amd64.zip"
+            }
+          ],
+          "capabilities": [
+            "analyze_reachability"
+          ],
+          "published_at": "2026-11-16T19:29:32Z",
+          "version": "0.10.1"
         }
       ]
     },
